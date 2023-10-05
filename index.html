@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/4c536a6bd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>library</h1>
+        <nav>
+         
+        </nav>
+      </div>
+    </header>
+    <main class="main container">
+      <button class="btn btn-add" id="addBookBtn">+ Add book</button>
+      <div class="books-grid" id="booksGrid">
+      </div>
+    </main>
+  
+    <div class="modal" id="addBookModal">
+      <form class="add-book-form" id="addBookForm">
+        <h3>Add new book</h3>
+        <input class="input" type="text" id="title" placeholder="Title" required maxlength="100"/>
+        <p class="error-msg" id="errorMsg"></p>
+        <input class="input" type="text" id="author" placeholder="Author" required maxlength="100"/>
+        <input class="input" type="number" id="pages" placeholder="Pages" required max="10000"/>
+        <div class="is-read">
+          <label for="is-read">Have you read it?</label>
+          <input class="checkbox" type="checkbox" id="isRead" />
+        </div>
+        <button class="btn btn-light-green" id = "submitBtn" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="overlay" id="overlay"></div>
+  </body>
+</html>
