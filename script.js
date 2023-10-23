@@ -1,5 +1,9 @@
 
-const bk = [];
+
+
+//const bk = [];
+//localStorage.setItem('bk', JSON.stringify(bk));
+
 const addBook = document.querySelector('#addBookBtn');
 const modal = document.getElementById('addBookModal');
 const overlay = document.getElementById('overlay');
@@ -7,6 +11,19 @@ const bookCard = document.querySelectorAll('.book-card');
 const bookGrid = document.querySelector('.books-grid');
 const submitBtn = document.getElementById('submitBtn');
 
+
+const bk = JSON.parse(localStorage.getItem('bk'));
+
+if(!bk)
+{
+  const tmp = [];
+  localStorage.setItem('bk', JSON.stringify(tmp));
+  bk = [];
+}
+else
+{
+  renderBookCards();
+}
 class Book {
    
   constructor(title, author, pages)
@@ -22,6 +39,8 @@ function createBook(title,author,pages)
   const newBook = new Book(title,author,pages);
   bk.push(newBook);
   renderBookCards();
+  localStorage.setItem('bk', JSON.stringify(bk));
+
 }
 
 function createCard(title,author,pages,ind)
@@ -101,6 +120,7 @@ bookGrid.addEventListener('click',(e)=>{
   let indexToDelete = card.index;
   bk.splice(indexToDelete,1);
   renderBookCards();
+  localStorage.setItem('bk', JSON.stringify(bk));
   }
   else if(e.target.className==="btn btn-light-red")
   {
